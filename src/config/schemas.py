@@ -27,6 +27,10 @@ Tables = {
     "conversations": Table("conversations", ["conversation_id", "user_id", "chat_history"])
 }
 
+AuthTable = {
+    "usersauth": Table("usersauth", ["id", "username", "password"])
+}
+
 
 class Schemas:
     """
@@ -48,7 +52,7 @@ class Schemas:
     """
 
     users = """
-    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT
     """
 
@@ -64,4 +68,10 @@ class Schemas:
     name TEXT,
     ingredients TEXT,
     instructions TEXT
+    """
+
+    usersauth = """
+    id INTEGER PRIMARY KEY,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL
     """
